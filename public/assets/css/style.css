@@ -6,7 +6,7 @@
     background-image: url('../img/hero-IMG_2321-1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
+    /* height: 600px; */
     color:#000c20;
 }
 
@@ -16,3 +16,11 @@
     margin-bottom: 50px;
     background: rgba(245,245,245,0.3);
 }
+label{
+    font-weight: bolder;
+    color: black;
+}
+
+/* .new-activity-form{
+    :active
+} */
