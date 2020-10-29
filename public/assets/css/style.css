@@ -1,11 +1,18 @@
-body{
+/* body{
     background-color: salmon;
-}
+} */
 
-/* .hero {
-    background-image: url('../img/hero-IMG_2321.JPG');
+.hero {
+    background-image: url('../img/hero-IMG_2321-1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
     color:#000c20;
-} */
+}
+
+.container {
+    padding: 50px; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: rgba(245,245,245,0.3);
+}
