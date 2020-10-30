@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+var exphbs = require("express-handlebars");
 
 
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,9 @@ const app = express();
 
 app.use(logger("dev"));
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -18,6 +22,16 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gorgeuserdb", { useNewUrlParser: true });
 
+app.get("/", (req, res) =>{
+    db.User.find({}, (err, data=>{
+        if(err){
+            console.log(err);
+            res.status(500).end()
+        }else{
+            res.send(data)
+        }
+    }))
+})
 
 app.get("/all", (req, res) =>{
     db.User.find({}, (err, data=>{
