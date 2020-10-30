@@ -88,7 +88,9 @@ app.post("/update/:id", ({body}, res) => {
       });
   });
 
-app.post("/update/:user", (req, res) =>{
+
+// Update User
+app.put("/update/:user", (req, res) =>{
     db.User.update({date}, (err, data=>{
         if(err){
             console.log(err);
