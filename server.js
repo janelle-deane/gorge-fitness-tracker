@@ -56,19 +56,34 @@ app.post("/newnew", ({body}, res) => {
       mileage: body.mileage,
       duration: body.duration
   }
+  db.User.create({name:body.name}).then( userObj => {
+      console.log(userObj);
+    db.Activity.create(newShred)
+    .then(({_id}) => db.User.findOneAndUpdate(
+      {_id: userObj._id}, 
+      {$push: {activities: _id}}, 
+      {new: true}))
+  
+      .then(dbUser => {
+        res.json(dbUser);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  })
 
-  db.Activity.create(newShred)
-  .then(({_id}) => db.User.findOneAndUpdate(
-    {_id: body._id}, 
-    {$push: {activities: _id}}, 
-    {new: true}))
+//   db.Activity.create(newShred)
+//   .then(({_id}) => db.User.findOneAndUpdate(
+//     {_id: body._id}, 
+//     {$push: {activities: _id}}, 
+//     {new: true}))
 
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+//     .then(dbUser => {
+//       res.json(dbUser);
+//     })
+//     .catch(err => {
+//       res.json(err);
+//     });
 });
 
 // Previous User and add an activity
