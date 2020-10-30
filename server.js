@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userdb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gorgeuserdb", { useNewUrlParser: true });
 
 
 app.get("/all", (req, res) =>{
@@ -29,9 +29,23 @@ app.get("/all", (req, res) =>{
         }
     }))
 })
-
+// Add new user and new activity
 app.post("/submit", ({body}, res) => {
-  db.User.create(body)
+  console.log(body)
+  const newShred ={
+      date: body.date,
+      activityName: body.activityName,
+      rigor: body.rigor,
+      mileage: body.mileage,
+      duration: body.duration
+  }
+
+  db.Activity.create(newShred)
+  .then(({_id}) => db.User.findOneAndUpdate(
+    {_id: body._id}, 
+    {$push: {activities: _id}}, 
+    {new: true}))
+
     .then(dbUser => {
       res.json(dbUser);
     })
@@ -40,7 +54,24 @@ app.post("/submit", ({body}, res) => {
     });
 });
 
-app.post("/update/:date", (req, res) =>{
+// Previous User and add an activity
+app.post("/update/:id", ({body}, res) => { 
+    let id= req.params.id
+    db.Activity.create(body)
+    .then((_id) => db.User.findOneAndUpdate(
+        {id}, 
+        {$push: { activities: _id}}, 
+        {new: true}))
+
+      .then(dbUser => {
+        res.json(dbUser);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+app.post("/update/:user", (req, res) =>{
     db.User.update({date}, (err, data=>{
         if(err){
             console.log(err);

@@ -5,10 +5,7 @@ const ActivitySchema = new Schema({
     date: {
         type: Date,
     },
-    email: {
-        type: String,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-    },
+    
     activityName: {
         type: String,
     },
@@ -24,6 +21,6 @@ const ActivitySchema = new Schema({
 
 });
 
-const Activity = mongoose.model("Activity", ActivitySchema);
+const Activity= mongoose.model("Activity", ActivitySchema);
 
 module.exports = Activity;

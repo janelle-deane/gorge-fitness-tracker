@@ -7,7 +7,11 @@ const UserSchema = new Schema({
     type: String,
     unique: true
   },
-  notes: [
+  email: {
+    type: String,
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+},
+  activities: [
     {
       type: Schema.Types.ObjectId,
       ref: "Activity"
