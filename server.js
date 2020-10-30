@@ -22,6 +22,7 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gorgeuserdb", { useNewUrlParser: true });
 
+// Render homepage
 app.get("/", (req, res) =>{
     db.User.find({}, (err, data=>{
         if(err){
@@ -29,6 +30,7 @@ app.get("/", (req, res) =>{
             res.status(500).end()
         }else{
             res.send(data)
+            // res.render("main", {users:....})
         }
     }))
 })
