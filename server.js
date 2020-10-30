@@ -71,19 +71,6 @@ app.post("/newnew", ({body}, res) => {
         res.json(err);
       });
   })
-
-//   db.Activity.create(newShred)
-//   .then(({_id}) => db.User.findOneAndUpdate(
-//     {_id: body._id}, 
-//     {$push: {activities: _id}}, 
-//     {new: true}))
-
-//     .then(dbUser => {
-//       res.json(dbUser);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
 });
 
 // Previous User and add an activity
