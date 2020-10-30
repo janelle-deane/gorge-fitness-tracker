@@ -30,11 +30,12 @@ app.get("/all", (req, res) =>{
     }))
 })
 // Add new user and new activity
-app.post("/submit", ({body}, res) => {
+app.post("/newnew", ({body}, res) => {
   console.log(body)
   const newShred ={
       date: body.date,
       activityName: body.activityName,
+      activityDes: body.activityDes,
       rigor: body.rigor,
       mileage: body.mileage,
       duration: body.duration

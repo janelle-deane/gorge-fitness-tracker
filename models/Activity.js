@@ -9,6 +9,9 @@ const ActivitySchema = new Schema({
     activityName: {
         type: String,
     },
+    activityDes: {
+        type: String,
+    },
    rigor: {
         type: String,
     },

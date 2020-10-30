@@ -21,11 +21,7 @@
                     <h2>river, trails and slopes so let The Gorge Shred Tracker do it for you!</h2>
                     <p>You can add a new activity or look at your previous shredding. </p>
                 </div>
-                <div class="column buttons">
-                    <button id="new" class="button">NEW DAY, NEW ACTIVITY</button>
-                    <button id="new" class="button">NEW ACTIVITY, PAST DAY</button>
-                    <button id="previous" class="button">VIEW PAST SHREDS</button>
-                </div>
+
                 <div class="column new-activity-form">
                     <div class="field">
                         <label class="label">Your Name</label>
@@ -35,15 +31,9 @@
                     </div>
 
                     <div class="field">
-                        <label class="label">Date</label>
+                        <label class="label">Date of Activity</label>
                         <div class="control">
                             <input class="input" id="date" type="text" placeholder="e.g 10/20/2030">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Activity Name </label>
-                        <div class="control">
-                            <input class="input" id="activity-name" type="text" placeholder="Middle Section of the White Salmon River">
                         </div>
                     </div>
 
@@ -58,6 +48,14 @@
                                     <option>Resort Skiing</option>
                                 </select>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Activity Description </label>
+                        <div class="control">
+                            <input class="input" id="activity-des" type="text"
+                                placeholder="Middle Section of the White Salmon River">
                         </div>
                     </div>
 
@@ -88,7 +86,13 @@
                             <input class="input" id="duration" type="number" placeholder="e.g 10 hours">
                         </div>
                     </div>
-                    
+
+                    <div class="column buttons">
+                        <button id="newNew" class="button">NEW DAY, NEW ACTIVITY</button>
+                        <button id="newOld" class="button">NEW ACTIVITY, PAST DAY</button>
+                        <button id="previous" class="button">VIEW PAST SHREDS</button>
+                    </div>
+
                     <div class="field">
                         <div class="control">
                             <button class="button is-link">Submit</button>
