@@ -22,28 +22,33 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gorgeuserdb", { useNewUrlParser: true });
 
-// Render homepage
-app.get("/", (req, res) =>{
-    db.User.find({}, (err, data=>{
-        if(err){
-            console.log(err);
-            res.status(500).end()
-        }else{
-            res.send(data)
-            // res.render("main", {users:....})
-        }
-    }))
+// Render homepage// Home page
+app.get("/", (req, res) => {
+  res.render("main")
 })
 
+
+
+// app.get("/", (req, res) =>{
+//     db.User.find({}, (err, data=>{
+//         if(err){
+//             console.log(err);
+//             res.status(500).end()
+//         }else{
+//             res.send(data)
+//             // res.render("main", {users:....})
+//         }
+//     }))
+// })
+
+// View all information
 app.get("/all", (req, res) =>{
     db.User.find({}, (err, data=>{
         if(err){
             console.log(err);
             res.status(500).end()
         }else{
-            res.send(data) 
-            // res.render("main", {users:....});
-
+            res.render("viewworkout", {users:data});
         }
     }))
 })
@@ -65,9 +70,9 @@ app.post("/newnew", ({body}, res) => {
       {_id: userObj._id}, 
       {$push: {activities: _id}}, 
       {new: true}))
-  
       .then(dbUser => {
         res.json(dbUser);
+        res.render("viewworkout", {users:data})
       })
       .catch(err => {
         res.json(err);
@@ -75,7 +80,8 @@ app.post("/newnew", ({body}, res) => {
   })
 });
 
-// Previous User and add an activity
+
+// Previous User and add an activity--ask how to best do this
 app.post("/update/:id", ({body}, res) => { 
     let id= req.params.id
     db.Activity.create(body)

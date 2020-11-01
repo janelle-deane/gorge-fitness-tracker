@@ -5,6 +5,7 @@ $(document).ready(function () {
     // When you click new new, form and newnew submit shows
     $("#newNew").on("click", function (event) {
         event.preventDefault();
+        $("#newNew-submit").removeClass("is-hidden")
 
     });
 
@@ -29,7 +30,7 @@ $(document).ready(function () {
             data: newActivityUser
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/"
+            window.location.href = "/viewworkout"
         });
     });
 
@@ -41,14 +42,14 @@ $(document).ready(function () {
             url: "/all",
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/"
+            window.location.href = "/viewworkout"
         });
     });
     
         // When you click newOld form and newOld submit shows***
         $("#newOld").on("click", function (event) {
             event.preventDefault();
-    
+            $("#newOld-submit").removeClass("is-hidden")
         });
 
 
@@ -73,7 +74,7 @@ $(document).ready(function () {
             data: newActivityUser
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/"
+            window.location.href = "/viewworkout"
         });
     });
 
