@@ -1,4 +1,4 @@
-{{!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,16 +6,34 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Gorge Fitness Tracker</title>
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <title>The Gorge Shred Tracker</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
     </head>
 
 <body>
+    <section class="hero is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column">
+                    <h1 class="title">The Columbia Gorge Fitness Tracker</h1>
+                    <h2>We know you are too busy triple sporting to track your days on the</h2>
+                    <h2>river, trails and slopes so let The Gorge Shred Tracker do it for you!</h2>
+                    <p>You can add a new activity or look at your previous shredding. </p>
+                </div>
 
-    {{{ body }}}
-
+                <div class="column buttons">
+                    <button id="newNew" class="button">NEW DAY, NEW ACTIVITY</button>
+                    <button id="newOld" class="button">NEW ACTIVITY, PAST USER</button>
+                    <button id="view" class="button">VIEW PAST SHREDS</button>
+                </div>
+                {{{ body }}}
+            </div>
+        </div>
+    </section>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="/assets/js/index.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
-</html> --}}
+</html>
