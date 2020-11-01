@@ -1,6 +1,3 @@
-/* body{
-    background-color: salmon;
-} */
 
 .hero {
     background-image: url('../img/hero-IMG_2321-1.jpg');
@@ -10,7 +7,7 @@
     color:#000c20;
 }
 
-.container {
+.container, .viewAct {
     padding: 50px; 
     margin-top: 50px;
     margin-bottom: 50px;
@@ -20,7 +17,10 @@ label{
     font-weight: bolder;
     color: black;
 }
-
+.activity-card{
+    padding: 25px; 
+    background: rgba(245,245,245,0.5);
+}
 /* .new-activity-form{
     :active
 } */

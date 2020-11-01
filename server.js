@@ -41,7 +41,9 @@ app.get("/all", (req, res) =>{
             console.log(err);
             res.status(500).end()
         }else{
-            res.send(data)
+            res.send(data) 
+            // res.render("main", {users:....});
+
         }
     }))
 })
@@ -92,16 +94,16 @@ app.post("/update/:id", ({body}, res) => {
 
 
 // Update User
-app.put("/update/:user", (req, res) =>{
-    db.User.update({date}, (err, data=>{
-        if(err){
-            console.log(err);
-            res.status(500).end()
-        }else{
-            res.send(data)
-        }
-    }))
-})
+// app.put("/update/:user", (req, res) =>{
+//     db.User.update({date}, (err, data=>{
+//         if(err){
+//             console.log(err);
+//             res.status(500).end()
+//         }else{
+//             res.send(data)
+//         }
+//     }))
+// })
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
