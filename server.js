@@ -36,10 +36,13 @@ app.get("/", (req, res) => {
 
 app.get("/all", (req, res) => {
   db.User.find({})
-    .populate("activities")
+    .populate("activities").lean()
     .then(data => {
-      console.log({user:data});
+      // console.log({user:data});
+      // console.log(data);
       // res.json(data)
+      // myData= data.toJSON()
+      console.log(data);
       res.render("viewworkout", {user:data});
     })
     .catch(err => {
