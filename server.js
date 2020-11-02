@@ -77,14 +77,12 @@ app.post("/newnew", ({body}, res) => {
 
 
 // Previous User and add an activity--ask how to best do this
-app.post("/update/:id", ({body}, res) => { 
-    let id= req.params.id
+app.post("/newold", ({body}, res) => { 
     db.Activity.create(body)
     .then((_id) => db.User.findOneAndUpdate(
-        {id}, 
+        {_id}, 
         {$push: { activities: _id}}, 
-        {new: true}))
-
+        {new: true})).lean()
       .then(dbUser => {
         res.json(dbUser);
       })
