@@ -4,13 +4,13 @@
         {{#each user}}
         <article class="tile is-child">
             <p class="title">{{user.name}}'s Activity:{{activityName}}</p>
-            <p class="subtitle">Date:{{date}}</p>
+            <p class="subtitle">Date:{{user.date}}</p>
             <div class="content">
                 <ul>
-                    <li>Activity Description: {{activityDes}}</li>
-                    <li>Rigor: {{rigor}}</li>
-                    <li>Mileage: {{mileage}}</li>
-                    <li>Duration: {{Duration}}</li>
+                    <li>Activity Description: {{user.activityDes}}</li>
+                    <li>Rigor: {{user.rigor}}</li>
+                    <li>Mileage: {{user.mileage}}</li>
+                    <li>Duration: {{user.duration}}</li>
                 </ul>
             </div>
         </article>
