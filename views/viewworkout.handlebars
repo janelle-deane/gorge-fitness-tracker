@@ -3,14 +3,14 @@
     <div class="tile is-ancestor activity-card">
         {{#each user}}
         <article class="tile is-child">
-            <p class="title">{{user.name}}'s Activity:{{activityName}}</p>
-            <p class="subtitle">Date:{{user.date}}</p>
+            <p class="title">{{user.name}}'s Activity:{{user.activities.activityName}}</p>
+            <p class="subtitle">Date:{{user.activities.date}}</p>
             <div class="content">
                 <ul>
-                    <li>Activity Description: {{user.activityDes}}</li>
-                    <li>Rigor: {{user.rigor}}</li>
-                    <li>Mileage: {{user.mileage}}</li>
-                    <li>Duration: {{user.duration}}</li>
+                    <li>Activity Description: {{user.activities.activityDes}}</li>
+                    <li>Rigor: {{user.activities.rigor}}</li>
+                    <li>Mileage: {{user.activities.mileage}}</li>
+                    <li>Duration: {{user.activities.duration}}</li>
                 </ul>
             </div>
         </article>

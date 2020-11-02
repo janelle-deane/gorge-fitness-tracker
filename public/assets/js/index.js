@@ -5,12 +5,11 @@ $(document).ready(function () {
     // When you click new new, form and newnew submit shows
     $("#newNew").on("click", function (event) {
         event.preventDefault();
-        $("#newNew-submit").removeClass("is-hidden")
-
+        $("#newNew-submit").removeClass("is-hidden");
     });
 
     // When you click newnew submit, new user and activity are created
-    $("#newNew-submit").on("click", function (event) {
+    $("#newNew-submit").on("submit", function (event) {
         event.preventDefault();
 
         const newActivityUser = {
@@ -30,7 +29,7 @@ $(document).ready(function () {
             data: newActivityUser
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/viewworkout"
+            window.location.href = "/all"
         });
     });
 
@@ -42,7 +41,7 @@ $(document).ready(function () {
             url: "/all",
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/viewworkout"
+            window.location.href = "/all"
         });
     });
     
@@ -74,7 +73,7 @@ $(document).ready(function () {
             data: newActivityUser
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/viewworkout"
+            window.location.href = "/all"
         });
     });
 

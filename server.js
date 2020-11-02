@@ -22,19 +22,25 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gorgeuserdb", { useNewUrlParser: true });
 
+
 // Render homepage// Home page
 app.get("/", (req, res) => {
   res.render("open")
 })
+
+// Render viewworkoutpage// 
+// app.get("/viewworkout", (req, res) => {
+//   res.render("viewworkout")
+// });
 
 
 app.get("/all", (req, res) => {
   db.User.find({})
     .populate("activities")
     .then(data => {
-      console.log(data);
-      res.render("viewworkout", {users:data});
-      // res.json(data);
+      console.log({user:data});
+      // res.json(data)
+      res.render("viewworkout", {user:data});
     })
     .catch(err => {
       res.json(err);
@@ -53,6 +59,12 @@ app.get("/all", (req, res) => {
 //         }
 //     }))
 // })
+
+
+// Render add page// 
+app.get("/addnew", (req, res) => {
+  res.render("addworkout")
+});
 // Add new user and new activity
 app.post("/newnew", ({body}, res) => {
   console.log(body)
@@ -73,7 +85,7 @@ app.post("/newnew", ({body}, res) => {
       {new: true}))
       .then(dbUser => {
         res.json(dbUser);
-        res.render("viewworkout", {users:data})
+        // res.render("viewworkout", {users:data})
       })
       .catch(err => {
         res.json(err);
