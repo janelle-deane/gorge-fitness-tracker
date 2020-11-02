@@ -28,20 +28,11 @@ app.get("/", (req, res) => {
   res.render("open")
 })
 
-// Render viewworkoutpage// 
-// app.get("/viewworkout", (req, res) => {
-//   res.render("viewworkout")
-// });
-
-
+// Render and view all in viewworkoutpage// 
 app.get("/all", (req, res) => {
   db.User.find({})
     .populate("activities").lean()
     .then(data => {
-      // console.log({user:data});
-      // console.log(data);
-      // res.json(data)
-      // myData= data.toJSON()
       console.log(data);
       res.render("viewworkout", {user:data});
     })
@@ -50,24 +41,12 @@ app.get("/all", (req, res) => {
     });
 });
 
-// View all information
-// app.get("/all", (req, res) =>{
-//     db.User.find({}, (err, data=>{
-//         if(err){
-//             console.log(err);
-//             res.status(500).end();
-//         }else{
-//           console.log(data)
-//             res.render("viewworkout", {users:data});
-//         }
-//     }))
-// })
-
 
 // Render add page// 
 app.get("/addnew", (req, res) => {
   res.render("addworkout")
 });
+
 // Add new user and new activity
 app.post("/newnew", ({body}, res) => {
   console.log(body)
