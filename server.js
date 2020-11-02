@@ -24,34 +24,35 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gorgeuserdb", {
 
 // Render homepage// Home page
 app.get("/", (req, res) => {
-  res.render("main")
+  res.render("open")
 })
 
 
+app.get("/all", (req, res) => {
+  db.User.find({})
+    .populate("activities")
+    .then(data => {
+      console.log(data);
+      res.render("viewworkout", {users:data});
+      // res.json(data);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
-// app.get("/", (req, res) =>{
+// View all information
+// app.get("/all", (req, res) =>{
 //     db.User.find({}, (err, data=>{
 //         if(err){
 //             console.log(err);
-//             res.status(500).end()
+//             res.status(500).end();
 //         }else{
-//             res.send(data)
-//             // res.render("main", {users:....})
+//           console.log(data)
+//             res.render("viewworkout", {users:data});
 //         }
 //     }))
 // })
-
-// View all information
-app.get("/all", (req, res) =>{
-    db.User.find({}, (err, data=>{
-        if(err){
-            console.log(err);
-            res.status(500).end()
-        }else{
-            res.render("viewworkout", {users:data});
-        }
-    }))
-})
 // Add new user and new activity
 app.post("/newnew", ({body}, res) => {
   console.log(body)
