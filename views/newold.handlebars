@@ -3,7 +3,7 @@
         <label class="label">Select Your Name</label>
         <div class="control">
            <div class="select is-rounded is-active" id="name">
-                <select>
+                <select id="select-name">
                     {{#each user}}
                     <option value= "{{_id}}">{{name}}</option>
                     {{/each}}
@@ -69,13 +69,7 @@
 
     <div class="field">
         <div class="control">
-            <button class="button is-link" id="newNew-submit">Submit newNew</button>
-        </div>
-    </div>
-
-    <div class="field">
-        <div class="control">
-            <button class="button is-link" id="newOld-submit">Submit newOld</button>
+            <button class="button is-link" id="newOld-submit">Submit</button>
         </div>
     </div>
 </div>

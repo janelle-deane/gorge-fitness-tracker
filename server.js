@@ -104,14 +104,6 @@ app.post("/newold/:id", (req, res) => {
   });
 
 
-  // app.post("/newold", ({body}, res)=>{
-  //   db.User.findByIdAndUpdate(
-  //     {body},
-  //     {$push: { activities: _id}}, 
-  //     {new: true})
-  //   .then
-  // })
-
 // Update User
 // app.put("/update/:user", (req, res) =>{
 //     db.User.update({date}, (err, data=>{

@@ -5,7 +5,6 @@ $(document).ready(function () {
     // When you click new new, form and newnew btn submit shows
     $("#newNew").on("click", function (event) {
         event.preventDefault();
-        $("#newOld-submit").addClass("is-hidden");
         $.ajax({
             method: "GET",
             url: "/addnew",
@@ -56,7 +55,6 @@ $(document).ready(function () {
     // When you click newOld form and newOld submit shows***
     $("#newOld").on("click", function (event) {
         event.preventDefault();
-        $("#newOld-submit").removeClass("is-hidden")
         $.ajax({
             method: "GET",
             url: "/newold",
@@ -71,7 +69,7 @@ $(document).ready(function () {
     $("#newOld-submit").on("click", function (event) {
         event.preventDefault();
         console.log($("select").val());
-       const userId = $("select").val()
+       const userId = $("#select-name").val()
         const newActivityUser = {
             name: $("#name").val(),
             date: $("#date").val(),
