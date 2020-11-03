@@ -75,14 +75,26 @@ app.post("/newnew", ({body}, res) => {
   })
 });
 
+// Render previous user new activity
+app.get("/newold", (req, res) => {
+  db.User.find({}).lean()
+    .then(data => {
+      console.log(data);
+      res.render("newold", {user:data});
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
-// Previous User and add an activity--ask how to best do this
-app.post("/newold", ({body}, res) => { 
-    db.Activity.create(body)
-    .then((_id) => db.User.findOneAndUpdate(
-        {_id}, 
+
+// Previous User and add an activity
+app.post("/newold/:id", (req, res) => { 
+    db.Activity.create(req.body)
+    .then(({_id}) => db.User.findOneAndUpdate(
+        { _id : req.params.id}, 
         {$push: { activities: _id}}, 
-        {new: true})).lean()
+        {new: true}))
       .then(dbUser => {
         res.json(dbUser);
       })
@@ -91,6 +103,14 @@ app.post("/newold", ({body}, res) => {
       });
   });
 
+
+  // app.post("/newold", ({body}, res)=>{
+  //   db.User.findByIdAndUpdate(
+  //     {body},
+  //     {$push: { activities: _id}}, 
+  //     {new: true})
+  //   .then
+  // })
 
 // Update User
 // app.put("/update/:user", (req, res) =>{

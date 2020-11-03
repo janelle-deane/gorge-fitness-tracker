@@ -57,13 +57,21 @@ $(document).ready(function () {
     $("#newOld").on("click", function (event) {
         event.preventDefault();
         $("#newOld-submit").removeClass("is-hidden")
+        $.ajax({
+            method: "GET",
+            url: "/newold",
+        }).then(apiRes => {
+            console.log(apiRes);
+            window.location.href = "/newold"
+        });
     });
 
 
     // When you click newOld submit, previous user and new activity are created
     $("#newOld-submit").on("click", function (event) {
         event.preventDefault();
-
+        console.log($("select").val());
+       const userId = $("select").val()
         const newActivityUser = {
             name: $("#name").val(),
             date: $("#date").val(),
@@ -77,7 +85,7 @@ $(document).ready(function () {
         console.log(newActivityUser);
         $.ajax({
             method: "POST",
-            url: "/newold",
+            url: "/newold/"+userId,
             data: newActivityUser
         }).then(apiRes => {
             console.log(apiRes);
