@@ -22,9 +22,9 @@ $(document).ready(function () {
         const newActivityUser = {
             name: $("#name").val(),
             date: $("#date").val(),
-            activityName: $("#activityName").val(),
+            activityName: $("#activityName option:selected").val(),
             activityDes: $("#activity-des").val(),
-            rigor: $("#rigor").val(),
+            rigor: $("#rigor option:selected").val(),
             mileage: $("#mileage").val(),
             duration: $("#duration").val(),
         }
