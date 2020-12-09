@@ -19,8 +19,9 @@
    ## Description: 
    This is deployed full stack application allowing the user to track their and other people’s activities. The technologies it uses are: Handlebars, Mongo DB, JavaScript for the backend, and Bulma for the CSS framework. Simply get on the deployed site and add your most recent activity! 
 
-   ![Video of Fitness Tracker in Action](https://res.cloudinary.com/dbd23cfw2/image/upload/v1607473477/Portfolio%20images/The_Gorge_Shred_Tracker_4_hlecpn.gif)
+   ![Image of Fitness Tracker in Action](https://res.cloudinary.com/dbd23cfw2/image/upload/v1605118661/Portfolio%20images/GorgeFitnessTracker_kual3a.png)
 
+Video Walkthrough: https://youtu.be/YWvNjTLvXa0
 
    ## Installation: 
 
